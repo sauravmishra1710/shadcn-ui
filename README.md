@@ -36,3 +36,137 @@ Shadcn-ui provides a middle ground: pre-styled but fully customizable components
 3. **Encourages Ownership:** Developers are often frustrated by breaking changes or limitations in third-party libraries. Shadcn-ui eliminates this by giving you full control of the components since they are part of your project’s codebase.
 
 In summary, Shadcn-ui is a framework for scaffolding accessible, customizable, and Tailwind CSS-styled components based on Radix UI primitives. Its core concept is to empower developers with reusable components while avoiding dependency lock-in and maintaining flexibility.
+
+# Installation & Setup
+
+Follow the [official documentation](https://ui.shadcn.com/docs/installation/vite) for the detailed steps.
+
+CLI option for setup - https://ui.shadcn.com/docs/cli
+
+#### Install Tailwind CSS
+Install tailwindcss and its peer dependencies, then generate your **tailwind.config.js** and **postcss.config.js** files.
+
+```
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+```
+#### Update tailwind.config.js:
+
+```
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+#### Install and Configure ShadCN/UI
+
+```
+npm install shadcn/ui
+```
+#### Add this import header in your main css file, src/index.css in our case
+
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ... */
+```
+
+**Ensure that you are configuring the below 2 steps as mentioned to put the compiler options in the jsconfig file and extend it in the .app configuration**. You might run into an error during runtime indication - `Module not found: Error: Can't resolve '@/components/ui`. 
+
+Refer: 
+1. https://github.com/shadcn-ui/ui/issues/3705#issuecomment-2186083081
+2. https://github.com/shadcn-ui/ui/issues/1101#issuecomment-1998726992
+
+#### Configure the tailwind template paths in tailwind.config.js
+
+```
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+#### Edit jsconfig.json file
+Add the baseUrl and paths properties to the compilerOptions section of the **jsconfig.json** and extend the same to the **jsconfig.app.json** file.
+
+```
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./jsconfig.app.json"
+    }
+  ]
+}
+```
+
+#### Edit jsconfig.app.json file
+Add the following code to the jsconfig.app.json file to resolve paths, for your IDE. 
+
+```
+{
+    "extends": "./jsconfig.json",
+    "compilerOptions": {
+      "composite": true,
+      "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+      "target": "ES2020",
+      "useDefineForClassFields": true,
+      "lib": ["ES2020", "DOM", "DOM.Iterable"],
+      "module": "ESNext",
+      "skipLibCheck": true,
+  
+      /* Bundler mode */
+      "moduleResolution": "bundler",
+      "allowImportingTsExtensions": true,
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "moduleDetection": "force",
+      "noEmit": true,
+      "jsx": "react-jsx",
+  
+      /* Linting */
+      "strict": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noFallthroughCasesInSwitch": true
+    },
+    "include": ["src"]
+  }
+```
+
+#### Run the CLI
+Run the shadcn-ui init command to setup your project.
+```
+npx shadcn@latest add button
+```
+OR 
+(I had faced issues installing the latest **shadcn**.)
+```
+npx shadcn-ui@0.8.0 init
+```
+
+#### Configure components.json
+Answer few questions to configure components.json:
+
+```
+Which style would you like to use? › New York
+Which color would you like to use as base color? › Zinc
+Do you want to use CSS variables for colors? › no / yes
+```
