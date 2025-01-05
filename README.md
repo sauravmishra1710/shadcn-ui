@@ -71,7 +71,7 @@ npm install shadcn/ui
 /* ... */
 ```
 
-**Ensure that you are configuring the below 2 steps as mentioned to put the compiler options in the jsconfig file and extend it in the .app configuration**. You might run into an error during runtime indication - `Module not found: Error: Can't resolve '@/components/ui`. 
+**Ensure that you are configuring the below 2 steps as mentioned to put the compiler options in the jsconfig file and extend it in the .app configuration**. Projects bootstrapped with create-react-app might run into an error during runtime - `Module not found: Error: Can't resolve '@/components/ui`. 
 
 Refer: 
 1. https://github.com/shadcn-ui/ui/issues/3705#issuecomment-2186083081
