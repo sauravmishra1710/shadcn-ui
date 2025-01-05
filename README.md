@@ -159,7 +159,27 @@ npx shadcn-ui@0.8.0 init
 Answer few questions to configure components.json:
 
 ```
-Which style would you like to use? › New York
-Which color would you like to use as base color? › Zinc
-Do you want to use CSS variables for colors? › no / yes
+✔ Would you like to use TypeScript (recommended)? ... no / yes
+✔ Which style would you like to use? › Default
+✔ Which color would you like to use as base color? › Slate
+✔ Where is your global CSS file? ... src/index.css
+✔ Would you like to use CSS variables for colors? ... no / yes
+✔ Where is your tailwind.config.js located?... tailwind.config.js
+✔ Configure the import alias for components: ... src/components
+✔ Configure the import alias for utils: ... src/lib/utils
+✔ Are you using React Server Components? ... no / yes
+✔ Write configuration to components. json. Proceed? ... yes
 ```
+
+✔ ﻿﻿Writing components. json...<br>
+✔ ﻿﻿Initializing project...<br>
+✔ ﻿﻿Installing dependencies...
+
+**_Success! Project initialization completed._**
+
+#### Start adding components to your project
+```
+npx shadcn add button 
+```
+The command above will add the Button component to your project under the project structure
+<img width="492" alt="image" src="https://github.com/user-attachments/assets/b57a25d2-df3c-41b6-b503-cfacbcd9ab23" />
