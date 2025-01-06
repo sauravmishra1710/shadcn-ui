@@ -105,9 +105,9 @@ const SignupForm = () => {
         </div>
       </Card>
 
-      <div className="absolute top-4 right-4">
+      <div className={`absolute top-4 right-4 ${isDarkMode ? "bg-black" : "bg-white"}`}> 
         <Button
-          variant="outline"
+          variant="default"
           onClick={() => setIsDarkMode(!isDarkMode)}
           className="text-sm"
         >
