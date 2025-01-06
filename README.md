@@ -192,37 +192,37 @@ Taking for example the button.jsx, we see that the complete source code for the 
 
 What happens when we add an element to project using the `npx shadcn add <element>` command?
 
-When you use the `npx shadcn add <element>` command, the Shadcn-ui CLI performs several actions behind the scenes to **scaffold** and **integrate** the specified UI component into your project. Listed below is the breakdown of what happens step-by-step -
+On executing the `npx shadcn add <element>` command, the shadcn CLI performs several actions behind the scenes to **scaffold** and **integrate** the specified UI component into your project. Listed below is the breakdown of what happens step-by-step -
 
 1. **Fetches Component Templates**<br>
    The CLI downloads the corresponding pre-configured component template from Shadcn’s repository or local resources. These templates include:
-    1. Radix UI primitive integration (for accessible behavior).
-    2. Tailwind CSS classes (for styling).
+    - Radix UI primitive integration (for accessible behavior).
+    - Tailwind CSS classes (for styling).
   
 2. **Generates Component Files**<br>
   The CLI creates the component file (e.g., button.jsx, dialog.jsx) in your project, typically in a components directory. It ensures that:
-    1. The component is self-contained.
-    2. Styling and structure follow the Tailwind-based design patterns.
+    - The component is self-contained.
+    - Styling and structure follow the Tailwind-based design patterns.
   
 3. **Installs Required Dependencies**<br>
   Checks for and installs required dependencies, such as:
-    1. Radix UI primitives (e.g., Radix UI primitives like @radix-ui/react-dialog) are automatically installed if they are not already present.
-    2. Any additional utilities or libraries (e.g., clsx for class merging or tailwind-merge).
+    - Radix UI primitives (e.g., Radix UI primitives like @radix-ui/react-dialog) are automatically installed if they are not already present.
+    - Any additional utilities or libraries (e.g., clsx for class merging or tailwind-merge).
   
 4. **Configures Tailwind CSS**<br>
   If applicable, the CLI updates your `tailwind.config.js` file to include any required configuration, such as:
-    1. Extending the theme (e.g., adding custom colors or spacing).
-    2. Including necessary plugins for features like animations.
+    - Extending the theme (e.g., adding custom colors or spacing).
+    - Including necessary plugins for features like animations.
   
 5. **Ensures TypeScript Compatibility**<br>
   If you’re using TypeScript, the CLI generates type-safe components and ensures that:
-    1. Type definitions for the component props are included.
-    2. Any necessary types from external libraries are installed.
+    - Type definitions for the component props are included.
+    - Any necessary types from external libraries are installed.
   
 6. **Updates Project Structure**<br>
   The CLI might suggest or apply changes to your project’s structure to support the added component, such as:
-    1. Creating a lib folder for reusable utilities.
-    2. Adding utility functions (e.g., class name merging). The CLI may create or update a utility file, such as lib/utils.ts, with functions like cn to handle class name merging.<br>
+    - Creating a lib folder for reusable utilities.
+    - Adding utility functions (e.g., class name merging). The CLI may create or update a utility file, such as lib/utils.ts, with functions like cn to handle class name merging.<br>
        Sample `lib/utils.js` file - 
        ```
         import { clsx } from "clsx"
@@ -235,15 +235,15 @@ When you use the `npx shadcn add <element>` command, the Shadcn-ui CLI performs 
   
 7. **Scaffolds Tailwind-Based Styling**<br>
   The generated component comes with pre-configured Tailwind CSS classes for consistent design. These classes are:
-    1. Opinionated but customizable.
-    2. Tailored to the Radix UI primitive's expected structure.
+    - Opinionated but customizable.
+    - Tailored to the Radix UI primitive's expected structure.
   
 8. **Logs or Provides Usage Instructions**<br>
   After adding the element, the CLI outputs instructions or notes about:
-    1. The location of the component file.
-    2. How to use the component in your project.
-    3. Any additional setup steps.
-       
+    - The location of the component file.
+    - How to use the component in your project.
+    - Any additional setup steps.
+
 ## Example Workflow for npx shadcn add button
 
 1. Fetch Template: Retrieves the button component template.
@@ -274,16 +274,39 @@ export function Button({ variant = "default", className, ...props }) {
 
 The Shadcn-ui workflow is consistent for all components, but the complexity of the scaffolding process depends on the specific needs of the component. Simpler components like buttons require minimal setup, while interactive and complex components rely on Radix UI primitives, utility libraries, and additional configuration. This unified process ensures that all components are accessible, customizable, and integrated seamlessly into your project, regardless of their complexity.
 
-## Example Comparisons of Components
-### Button
-  1. Simple, pre-styled component.
-  2. No Radix UI primitives required.
-  3. Minimal dependencies and configuration.
-### Dialog
-  1. Includes Radix UI's @radix-ui/react-dialog for accessibility and behavior.
-  2. Creates multiple files or subcomponents (e.g., Dialog, DialogTrigger, DialogContent).
-  3. Requires Tailwind configuration for animations and styling.
-### Dropdown
-  1. Uses Radix UI's dropdown primitives.
-  2. Includes multiple subcomponents (e.g., DropdownMenu, DropdownItem).
-  3. Customizable styles with Tailwind.
+The comparison below shows how components differ in terms of complexity, corresponding dependencies, radix-ui primitives, and any additional tailwind configurations needed...
+
+## Component Scenarios
+
+| **Component**     | **Complexity**         | **Dependencies**                                     | **Radix Primitives**       | **Tailwind Configuration**                | **Features**                                                                                 |
+|--------------------|------------------------|-----------------------------------------------------|----------------------------|-------------------------------------------|---------------------------------------------------------------------------------------------|
+| **Button**         | Simple                | `clsx` (for class merging)                          | None                       | Basic styling classes                     | Pre-styled with Tailwind, supports variants like `primary`, `outline`, and customizable.     |
+| **Dialog**         | Interactive           | `@radix-ui/react-dialog`, `clsx`, `tailwind-merge`  | `Dialog`, `DialogTrigger`  | Animations (e.g., `transition`, `opacity`) | Includes multiple subcomponents for trigger, overlay, and content. Accessible by default.   |
+| **Dropdown**       | Interactive           | `@radix-ui/react-dropdown-menu`, `clsx`             | `DropdownMenu`, `DropdownItem` | Menu item spacing and styling          | Customizable dropdown menu with keyboard navigation and multiple item types.                |
+| **Combobox**       | Complex               | `@radix-ui/react-combobox`, optional state library  | `Combobox`, `ComboboxItem` | Extends spacing and animation styles     | Includes search functionality, keyboard navigation, and accessibility.                      |
+| **Table**          | Complex               | `clsx`, `tailwind-merge`, optional third-party libs | None                       | Extended styles for tables               | Pre-styled table components, customizable columns, and supports sorting/other interactions. |
+
+---
+
+1. **Simple Components**:
+   - Minimal setup required.
+   - Typically rely on Tailwind classes for styling and utilities like `clsx`.
+
+2. **Interactive Components**:
+   - Require **Radix UI primitives** to handle behavior (e.g., dialogs, dropdowns).
+   - May include animations, keyboard navigation, and accessibility out-of-the-box.
+
+3. **Complex Components**:
+   - Include multiple subcomponents.
+   - Might depend on additional libraries or plugins for state management or extended functionality.
+   - Often involve state logic and intricate accessibility requirements.
+  
+## Example Implementation
+
+As part of this project a sample signup form is implemented using the shadcn ui elements like the button, input, label, & card. The components reside in the [src/components/ui](https://github.com/sauravmishra1710/shadcn-ui/tree/main/experiments-with-shadcn-ui/src/components/ui) directory & imported into the [SignupForm.jsx](https://github.com/sauravmishra1710/shadcn-ui/blob/main/experiments-with-shadcn-ui/src/SignupForm.jsx) component. The UI design looks like - 
+
+<img width="472" alt="SignupForm-Light" src="https://github.com/user-attachments/assets/4b3ff60c-a960-473b-935c-1849fff28427" />
+
+<img width="492" alt="SignupForm-Dark" src="https://github.com/user-attachments/assets/be549662-4743-4766-9711-e7bcab536ac0" />
+
+Shadcn UI offers a complete solution for crafting functional & visually impressive UX providing extensive customization options to create custom UI components. It equips developers with all the tools needed to bring their web applications to life.
