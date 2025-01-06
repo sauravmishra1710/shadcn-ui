@@ -305,8 +305,9 @@ The comparison below shows how components differ in terms of complexity, corresp
 
 As part of this project a sample signup form is implemented using the shadcn ui elements like the button, input, label, & card. The components reside in the [src/components/ui](https://github.com/sauravmishra1710/shadcn-ui/tree/main/experiments-with-shadcn-ui/src/components/ui) directory & imported into the [SignupForm.jsx](https://github.com/sauravmishra1710/shadcn-ui/blob/main/experiments-with-shadcn-ui/src/SignupForm.jsx) component. The UI design looks like - 
 
-<img width="472" alt="SignupForm-Light" src="https://github.com/user-attachments/assets/4b3ff60c-a960-473b-935c-1849fff28427" />
+<img width="380" height="400" alt="SignupForm-Light" src="https://github.com/user-attachments/assets/4b3ff60c-a960-473b-935c-1849fff28427" />
 
-<img width="492" alt="SignupForm-Dark" src="https://github.com/user-attachments/assets/be549662-4743-4766-9711-e7bcab536ac0" />
+<img width="380" height="410" alt="SignupForm-Dark" src="https://github.com/user-attachments/assets/be549662-4743-4766-9711-e7bcab536ac0" />
 
+## Conclusion
 Shadcn UI offers a complete solution for crafting functional & visually impressive UX providing extensive customization options to create custom UI components. It equips developers with all the tools needed to bring their web applications to life.
