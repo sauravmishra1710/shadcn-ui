@@ -301,7 +301,7 @@ The comparison below shows how components differ in terms of complexity, corresp
    - Might depend on additional libraries or plugins for state management or extended functionality.
    - Often involve state logic and intricate accessibility requirements.
   
-## Example Implementation
+## ShadCN UI in Action 
 
 As part of this project a sample signup form is implemented using the shadcn ui elements like the button, input, label, & card. The components reside in the [src/components/ui](https://github.com/sauravmishra1710/shadcn-ui/tree/main/experiments-with-shadcn-ui/src/components/ui) directory & imported into the [SignupForm.jsx](https://github.com/sauravmishra1710/shadcn-ui/blob/main/experiments-with-shadcn-ui/src/SignupForm.jsx) component. The UI design looks like - 
 
