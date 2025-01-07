@@ -320,4 +320,5 @@ As part of this project a sample signup form is implemented using the shadcn ui 
 <img width="450" height="470" alt="SignupForm-Light" src="https://github.com/user-attachments/assets/4b3ff60c-a960-473b-935c-1849fff28427" />
 <img width="450" height="480" alt="SignupForm-Dark" src="https://github.com/user-attachments/assets/be549662-4743-4766-9711-e7bcab536ac0" />
 
+## Conclusion
 Shadcn UI offers a complete solution for crafting functional & visually impressive UX providing extensive customization options to create custom UI components. It equips developers with all the tools needed to bring their web applications to life.
