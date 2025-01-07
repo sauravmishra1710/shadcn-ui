@@ -271,7 +271,19 @@ export function Button({ variant = "default", className, ...props }) {
   );
 }
 ```
+Once the component is generated, we just need to import the component & use it in the application. A sample usage would look like - 
+```
+import { Button } from "@/components/button";
 
+export default function App() {
+  return (
+    <div>
+      <Button variant="default">Click Me</Button>
+      <Button variant="outline">Outlined</Button>
+    </div>
+  );
+}
+```
 The Shadcn-ui workflow is consistent for all components, but the complexity of the scaffolding process depends on the specific needs of the component. Simpler components like buttons require minimal setup, while interactive and complex components rely on Radix UI primitives, utility libraries, and additional configuration. This unified process ensures that all components are accessible, customizable, and integrated seamlessly into your project, regardless of their complexity.
 
 The comparison below shows how components differ in terms of complexity, corresponding dependencies, radix-ui primitives, and any additional tailwind configurations needed...
