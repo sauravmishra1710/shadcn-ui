@@ -271,7 +271,19 @@ export function Button({ variant = "default", className, ...props }) {
   );
 }
 ```
+Once the component is generated, we just need to import the component & use it in the application. A sample usage would look like - 
+```
+import { Button } from "@/components/button";
 
+export default function App() {
+  return (
+    <div>
+      <Button variant="default">Click Me</Button>
+      <Button variant="outline">Outlined</Button>
+    </div>
+  );
+}
+```
 The Shadcn-ui workflow is consistent for all components, but the complexity of the scaffolding process depends on the specific needs of the component. Simpler components like buttons require minimal setup, while interactive and complex components rely on Radix UI primitives, utility libraries, and additional configuration. This unified process ensures that all components are accessible, customizable, and integrated seamlessly into your project, regardless of their complexity.
 
 The comparison below shows how components differ in terms of complexity, corresponding dependencies, radix-ui primitives, and any additional tailwind configurations needed...
@@ -301,13 +313,12 @@ The comparison below shows how components differ in terms of complexity, corresp
    - Might depend on additional libraries or plugins for state management or extended functionality.
    - Often involve state logic and intricate accessibility requirements.
   
-## Example Implementation
+## ShadCN UI in Action 
 
 As part of this project a sample signup form is implemented using the shadcn ui elements like the button, input, label, & card. The components reside in the [src/components/ui](https://github.com/sauravmishra1710/shadcn-ui/tree/main/experiments-with-shadcn-ui/src/components/ui) directory & imported into the [SignupForm.jsx](https://github.com/sauravmishra1710/shadcn-ui/blob/main/experiments-with-shadcn-ui/src/SignupForm.jsx) component. The UI design looks like - 
 
-<img width="380" height="400" alt="SignupForm-Light" src="https://github.com/user-attachments/assets/4b3ff60c-a960-473b-935c-1849fff28427" />
-
-<img width="380" height="410" alt="SignupForm-Dark" src="https://github.com/user-attachments/assets/be549662-4743-4766-9711-e7bcab536ac0" />
+<img width="450" height="470" alt="SignupForm-Light" src="https://github.com/user-attachments/assets/4b3ff60c-a960-473b-935c-1849fff28427" />
+<img width="450" height="480" alt="SignupForm-Dark" src="https://github.com/user-attachments/assets/be549662-4743-4766-9711-e7bcab536ac0" />
 
 ## Conclusion
 Shadcn UI offers a complete solution for crafting functional & visually impressive UX providing extensive customization options to create custom UI components. It equips developers with all the tools needed to bring their web applications to life.
