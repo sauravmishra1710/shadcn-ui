@@ -37,157 +37,158 @@ Follow the [official documentation](https://ui.shadcn.com/docs/installation/vite
 CLI option for setup - https://ui.shadcn.com/docs/cli
 <details>
   <summary>Expand to see detailed steps</summary>
-#### Install Tailwind CSS
-Install tailwindcss and its peer dependencies, then generate your **tailwind.config.js** and **postcss.config.js** files.
-
-```
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init
-```
-#### Update tailwind.config.js:
-
-```
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-```
-
-#### Install and Configure ShadCN/UI
-
-```
-npm install shadcn/ui
-```
-#### Add this import header in your main css file, src/index.css in our case
-
-```
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* ... */
-```
-
-**Ensure that you are configuring the below 2 steps as mentioned to put the compiler options in the jsconfig file and extend it in the .app configuration**. Projects bootstrapped with create-react-app might run into an error during runtime - `Module not found: Error: Can't resolve '@/components/ui`. 
-
-Refer: 
-1. https://github.com/shadcn-ui/ui/issues/3705#issuecomment-2186083081
-2. https://github.com/shadcn-ui/ui/issues/1101#issuecomment-1998726992
-
-#### Configure the tailwind template paths in tailwind.config.js
-
-```
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-```
-
-#### Edit jsconfig.json file
-Add the baseUrl and paths properties to the compilerOptions section of the **jsconfig.json** and extend the same to the **jsconfig.app.json** file.
-
-```
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "files": [],
-  "references": [
-    {
-      "path": "./jsconfig.app.json"
-    }
-  ]
-}
-```
-
-#### Edit jsconfig.app.json file
-Add the following code to the jsconfig.app.json file to resolve paths, for your IDE. 
-
-```
-{
-    "extends": "./jsconfig.json",
-    "compilerOptions": {
-      "composite": true,
-      "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-      "target": "ES2020",
-      "useDefineForClassFields": true,
-      "lib": ["ES2020", "DOM", "DOM.Iterable"],
-      "module": "ESNext",
-      "skipLibCheck": true,
   
-      /* Bundler mode */
-      "moduleResolution": "bundler",
-      "allowImportingTsExtensions": true,
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "moduleDetection": "force",
-      "noEmit": true,
-      "jsx": "react-jsx",
+  #### Install Tailwind CSS
+  Install tailwindcss and its peer dependencies, then generate your **tailwind.config.js** and **postcss.config.js** files.
   
-      /* Linting */
-      "strict": true,
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "noFallthroughCasesInSwitch": true
+  ```
+  npm install -D tailwindcss postcss autoprefixer
+  npx tailwindcss init
+  ```
+  #### Update tailwind.config.js:
+  
+  ```
+  /** @type {import('tailwindcss').Config} */
+  module.exports = {
+    content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
+    theme: {
+      extend: {},
     },
-    "include": ["src"]
+    plugins: [],
   }
-```
-
-#### Run the CLI
-Run the shadcn-ui init command to setup your project.
-```
-npx shadcn@latest add button
-```
-OR 
-(I had faced issues installing the latest **shadcn**.)
-```
-npx shadcn-ui@0.8.0 init
-```
-
-#### Configure components.json
-Answer few questions to configure components.json:
-
-```
-✔ Would you like to use TypeScript (recommended)? ... no / yes
-✔ Which style would you like to use? › Default
-✔ Which color would you like to use as base color? › Slate
-✔ Where is your global CSS file? ... src/index.css
-✔ Would you like to use CSS variables for colors? ... no / yes
-✔ Where is your tailwind.config.js located?... tailwind.config.js
-✔ Configure the import alias for components: ... src/components
-✔ Configure the import alias for utils: ... src/lib/utils
-✔ Are you using React Server Components? ... no / yes
-✔ Write configuration to components. json. Proceed? ... yes
-```
-
-✔ ﻿﻿Writing components. json...<br>
-✔ ﻿﻿Initializing project...<br>
-✔ ﻿﻿Installing dependencies...
-
-**_Success! Project initialization completed._**
-
-#### Start adding components to your project
-```
-npx shadcn add button 
-```
-The command above will add the Button component to your project under the project structure
-<img width="492" alt="image" src="https://github.com/user-attachments/assets/b57a25d2-df3c-41b6-b503-cfacbcd9ab23" />
-
-The installed code for the components in the image can be found in the [components/ui directory within the src directory](https://github.com/sauravmishra1710/shadcn-ui/tree/main/experiments-with-shadcn-ui/src/components/ui). 
-
-Taking for example the button.jsx, we see that the complete source code for the element is downloaded & now resides within the project folder giving the developer complete ownership of it.
+  ```
+  
+  #### Install and Configure ShadCN/UI
+  
+  ```
+  npm install shadcn/ui
+  ```
+  #### Add this import header in your main css file, src/index.css in our case
+  
+  ```
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  
+  /* ... */
+  ```
+  
+  **Ensure that you are configuring the below 2 steps as mentioned to put the compiler options in the jsconfig file and extend it in the .app configuration**. Projects bootstrapped with create-react-app might run into an error during runtime - `Module not found: Error: Can't resolve '@/components/ui`. 
+  
+  Refer: 
+  1. https://github.com/shadcn-ui/ui/issues/3705#issuecomment-2186083081
+  2. https://github.com/shadcn-ui/ui/issues/1101#issuecomment-1998726992
+  
+  #### Configure the tailwind template paths in tailwind.config.js
+  
+  ```
+  /** @type {import('tailwindcss').Config} */
+  module.exports = {
+    content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
+    theme: {
+      extend: {},
+    },
+    plugins: [],
+  }
+  ```
+  
+  #### Edit jsconfig.json file
+  Add the baseUrl and paths properties to the compilerOptions section of the **jsconfig.json** and extend the same to the **jsconfig.app.json** file.
+  
+  ```
+  {
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["./src/*"]
+      }
+    },
+    "files": [],
+    "references": [
+      {
+        "path": "./jsconfig.app.json"
+      }
+    ]
+  }
+  ```
+  
+  #### Edit jsconfig.app.json file
+  Add the following code to the jsconfig.app.json file to resolve paths, for your IDE. 
+  
+  ```
+  {
+      "extends": "./jsconfig.json",
+      "compilerOptions": {
+        "composite": true,
+        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "module": "ESNext",
+        "skipLibCheck": true,
+    
+        /* Bundler mode */
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "moduleDetection": "force",
+        "noEmit": true,
+        "jsx": "react-jsx",
+    
+        /* Linting */
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true
+      },
+      "include": ["src"]
+    }
+  ```
+  
+  #### Run the CLI
+  Run the shadcn-ui init command to setup your project.
+  ```
+  npx shadcn@latest add button
+  ```
+  OR 
+  (I had faced issues installing the latest **shadcn**.)
+  ```
+  npx shadcn-ui@0.8.0 init
+  ```
+  
+  #### Configure components.json
+  Answer few questions to configure components.json:
+  
+  ```
+  ✔ Would you like to use TypeScript (recommended)? ... no / yes
+  ✔ Which style would you like to use? › Default
+  ✔ Which color would you like to use as base color? › Slate
+  ✔ Where is your global CSS file? ... src/index.css
+  ✔ Would you like to use CSS variables for colors? ... no / yes
+  ✔ Where is your tailwind.config.js located?... tailwind.config.js
+  ✔ Configure the import alias for components: ... src/components
+  ✔ Configure the import alias for utils: ... src/lib/utils
+  ✔ Are you using React Server Components? ... no / yes
+  ✔ Write configuration to components. json. Proceed? ... yes
+  ```
+  
+  ✔ ﻿﻿Writing components. json...<br>
+  ✔ ﻿﻿Initializing project...<br>
+  ✔ ﻿﻿Installing dependencies...
+  
+  **_Success! Project initialization completed._**
+  
+  #### Start adding components to your project
+  ```
+  npx shadcn add button 
+  ```
+  The command above will add the Button component to your project under the project structure
+  <img width="492" alt="image" src="https://github.com/user-attachments/assets/b57a25d2-df3c-41b6-b503-cfacbcd9ab23" />
+  
+  The installed code for the components in the image can be found in the [components/ui directory within the src directory](https://github.com/sauravmishra1710/shadcn-ui/tree/main/experiments-with-shadcn-ui/src/components/ui). 
+  
+  Taking for example the button.jsx, we see that the complete source code for the element is downloaded & now resides within the project folder giving the developer complete ownership of it.
 
 </details>
 
