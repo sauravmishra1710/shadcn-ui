@@ -35,7 +35,8 @@ In summary, Shadcn-ui is a framework for scaffolding accessible, customizable, a
 Follow the [official documentation](https://ui.shadcn.com/docs/installation/vite) for the detailed steps.
 
 CLI option for setup - https://ui.shadcn.com/docs/cli
-
+<details>
+  <summary>Expand to see detailed steps</summary>
 #### Install Tailwind CSS
 Install tailwindcss and its peer dependencies, then generate your **tailwind.config.js** and **postcss.config.js** files.
 
@@ -188,6 +189,8 @@ The installed code for the components in the image can be found in the [componen
 
 Taking for example the button.jsx, we see that the complete source code for the element is downloaded & now resides within the project folder giving the developer complete ownership of it.
 
+</details>
+
 ## Behind the Scenes
 
 What happens when we add an element to project using the `npx shadcn add <element>` command?
@@ -238,7 +241,7 @@ On executing the `npx shadcn add <element>` command, the shadcn CLI performs sev
     - Opinionated but customizable.
     - Tailored to the Radix UI primitive's expected structure.
   
-8. **Logs or Provides Usage Instructions**<br>
+8. **Documents Usage Instructions**<br>
   After adding the element, the CLI outputs instructions or notes about:
     - The location of the component file.
     - How to use the component in your project.
