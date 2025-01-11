@@ -1,4 +1,4 @@
-# shadcn-ui
+# Understanding Shadcn-UI: A Deep Dive into Tailwind-Styled Radix Components
 
 My attempt at understanding the [shadcn-ui component library](https://ui.shadcn.com/) which has some beautifully designed components made with Tailwind CSS. The framework provides a collection of **reusable components** that can be customized to fit any project.
 
