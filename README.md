@@ -316,25 +316,6 @@ The comparison below shows how components differ in terms of complexity, corresp
    - Include multiple subcomponents.
    - Might depend on additional libraries or plugins for state management or extended functionality.
    - Often involve state logic and intricate accessibility requirements.
-
-## Comparison of Shadcn-UI with Other UI Frameworks
-
-| **Aspect**              | **Shadcn-UI**                           | **Material-UI (MUI)**                     | **Chakra UI**                           | **Ant Design**                          | **Radix UI**                            |
-|--------------------------|------------------------------------------|--------------------------------------------|------------------------------------------|------------------------------------------|------------------------------------------|
-| **Core Philosophy**      | Combines Radix UI primitives with Tailwind for accessible, opinionated components. | Google’s Material Design principles.       | Accessible, flexible, and themeable UI.  | Enterprise-grade UI with design system. | Low-level, unstyled, accessible components. |
-| **Styling Approach**     | Tailwind CSS (opinionated but customizable). | Styled components, CSS-in-JS.              | Style props and CSS-in-JS.               | LESS/CSS (default) with customizability. | No styling (unstyled primitives).       |
-| **Accessibility**        | Strong (uses Radix UI primitives for built-in accessibility). | Good but depends on implementation.        | Strong (focuses on accessibility by default). | Good (focuses on ARIA and WCAG compliance). | Excellent (primary focus).              |
-| **Customizability**      | High (components live in your project; fully editable). | Moderate (theming via CSS-in-JS).          | High (extensible theme and props).       | Moderate (custom themes with overrides). | Very high (unstyled components).        |
-| **Design System**        | No predefined design system, but easily adaptable. | Follows Google’s Material Design.          | Neutral but themeable design.            | Follows Ant Design system.              | No design system (base primitives).     |
-| **Dependencies**         | Radix UI + Tailwind CSS + optional utilities (`clsx`, `tailwind-merge`). | Emotion (styled components), React.        | Framer Motion (for animations).          | React, LESS/CSS.                        | React only.                             |
-| **Learning Curve**       | Moderate (requires Tailwind and Radix familiarity). | Low to Moderate.                           | Low to Moderate.                         | Moderate (requires knowledge of its design philosophy). | Moderate (requires styling from scratch). |
-| **Component Variety**    | Moderate (focuses on core components; expand as needed). | High (rich library of pre-built components). | Moderate (basic components with extensions). | High (extensive set of components).      | Low (minimal primitives).               |
-| **Best Use Case**        | Customizable projects needing accessible components with Tailwind. | Projects following Material Design.        | Accessible and themeable React apps.     | Enterprise apps requiring consistent UI. | Developers building custom, accessible UI from scratch. |
-| **Theming**              | Tailwind-based theming (requires Tailwind setup). | Dynamic theming via CSS-in-JS.             | Built-in theme extensibility.            | Customizable via LESS/CSS variables.    | Requires external styling solutions.    |
-| **Performance**          | High (lightweight, minimal overhead).   | Moderate (CSS-in-JS can add overhead).      | High (optimized for React).              | Moderate (heavier with large apps).      | High (primitives-only).                 |
-| **Community**            | Emerging (newer framework with growing adoption). | Large and established.                     | Growing and active.                      | Large and enterprise-focused.           | Small but growing, especially for accessibility. |
-| **Ownership of Code**    | Full ownership (code is part of the project). | Limited (depends on external package updates). | Limited (library-controlled components). | Limited (relies on the library updates). | Full ownership (you handle the styling). |
-
   
 ## ShadCN UI in Action 
 
