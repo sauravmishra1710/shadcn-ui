@@ -230,44 +230,35 @@ Once the component is generated, we just need to import the component & use it i
 ```
 import { Button } from "@/components/button";
 
-export default function App() {
+function App() {
   return (
     <div>
-      <Button variant="default">Click Me</Button>
-      <Button variant="outline">Outlined</Button>
+      <Button variant="default">Create Account</Button>
+      <Button variant="outline">Create Account with Github</Button>
     </div>
   );
 }
-```
-The Shadcn-ui workflow is consistent for all components, but the complexity of the scaffolding process depends on the specific needs of the component. Simpler components like buttons require minimal setup, while interactive and complex components rely on Radix UI primitives, utility libraries, and additional configuration. This unified process ensures that all components are accessible, customizable, and integrated seamlessly into your project, regardless of their complexity.
 
-The comparison below shows how components differ in terms of complexity, corresponding dependencies, radix-ui primitives, and any additional tailwind configurations needed...
+export default App;
+```
+
+ShadCN's scaffolding process is similar for all components. However, depending on the need & component complexity there may be a few additional dependencies getting installed. Simple components (button, input, label, etc..) have minimal setup requirements, while complex components (table, dialog, etc..) rely on their corresponding Radix UI primitives, utility libraries, subcomponents,  and additional configuration which gets installed as additional dependencies.
+
+
+The comparison below shows how components differ in terms of complexity, corresponding dependencies, radix-ui primitives, and any additional tailwind configurations needed.
 
 ## Component Scenarios
 
 | **Component**     | **Complexity**         | **Dependencies**                                     | **Radix Primitives**       | **Tailwind Configuration**                | **Features**                                                                                 |
 |--------------------|------------------------|-----------------------------------------------------|----------------------------|-------------------------------------------|---------------------------------------------------------------------------------------------|
 | **Button**         | Simple                | `clsx` (for class merging)                          | None                       | Basic styling classes                     | Pre-styled with Tailwind, supports variants like `primary`, `outline`, and customizable.     |
-| **Dialog**         | Interactive           | `@radix-ui/react-dialog`, `clsx`, `tailwind-merge`  | `Dialog`, `DialogTrigger`  | Animations (e.g., `transition`, `opacity`) | Includes multiple subcomponents for trigger, overlay, and content. Accessible by default.   |
-| **Dropdown**       | Interactive           | `@radix-ui/react-dropdown-menu`, `clsx`             | `DropdownMenu`, `DropdownItem` | Menu item spacing and styling          | Customizable dropdown menu with keyboard navigation and multiple item types.                |
 | **Combobox**       | Complex               | `@radix-ui/react-combobox`, optional state library  | `Combobox`, `ComboboxItem` | Extends spacing and animation styles     | Includes search functionality, keyboard navigation, and accessibility.                      |
+| **Dropdown**       | Interactive           | `@radix-ui/react-dropdown-menu`, `clsx`             | `DropdownMenu`, `DropdownItem` | Menu item spacing and styling          | Customizable dropdown menu with keyboard navigation and multiple item types.                |
 | **Table**          | Complex               | `clsx`, `tailwind-merge`, optional third-party libs | None                       | Extended styles for tables               | Pre-styled table components, customizable columns, and supports sorting/other interactions. |
+| **Dialog**         | Interactive           | `@radix-ui/react-dialog`, `clsx`, `tailwind-merge`  | `Dialog`, `DialogTrigger`  | Animations (e.g., `transition`, `opacity`) | Includes multiple subcomponents for trigger, overlay, and content. Accessible by default.   |
 
 ---
 
-1. **Simple Components**:
-   - Minimal setup required.
-   - Typically rely on Tailwind classes for styling and utilities like `clsx`.
-
-2. **Interactive Components**:
-   - Require **Radix UI primitives** to handle behavior (e.g., dialogs, dropdowns).
-   - May include animations, keyboard navigation, and accessibility out-of-the-box.
-
-3. **Complex Components**:
-   - Include multiple subcomponents.
-   - Might depend on additional libraries or plugins for state management or extended functionality.
-   - Often involve state logic and intricate accessibility requirements.
-  
 ## ShadCN UI in Action 
 
 As part of this project a sample signup form is implemented using the shadcn ui elements like the button, input, label, & card. The components reside in the [src/components/ui](https://github.com/sauravmishra1710/shadcn-ui/tree/main/experiments-with-shadcn-ui/src/components/ui) directory & imported into the [SignupForm.jsx](https://github.com/sauravmishra1710/shadcn-ui/blob/main/experiments-with-shadcn-ui/src/SignupForm.jsx) component. The UI design looks like - 
@@ -276,4 +267,4 @@ As part of this project a sample signup form is implemented using the shadcn ui 
 <img width="400" height="480" alt="SignupForm-Dark" src="https://github.com/user-attachments/assets/be549662-4743-4766-9711-e7bcab536ac0" />
 
 ## Conclusion
-Shadcn UI offers a complete solution for crafting functional & visually impressive UX providing extensive customization options to create custom UI components. It equips developers with all the tools needed to bring their web applications to life.
+Shadcn, being a relatively new UI framework it goes a long way in providing a complete solution for producing visually impressive UX. It allows complete ownership of the components to its consumers, enables customization, provides out of the box accessibility which enables usability to all categories of users. Though it increases maintainability to some extent on the consumer as the code for the components resides in the project, its features & capabilities make it equip consumers to create seamless & delightful UX experiences.
