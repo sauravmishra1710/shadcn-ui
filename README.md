@@ -10,19 +10,19 @@ The Shadcn/ui framework transforms how we design and build web apps. It solves m
 
 Shadcn-ui is essentially a wrapper or scaffolding system that builds on top of [RADIX UI](https://www.radix-ui.com/) components. The core idea is to build a system that ties together the un-styled primitive components and fully styled components.
 
-## Key Benefits
+# Key Benefits
 1.	Consumers have complete control on how they want their components are styled & can have their own custom styles defined as per the need of the project allowing customizability.
 2.	Since the components are built on top of the Radix UI primitives, they are completely accessible, ensuring applications can be used by everyone.
 3.	The components are lightweight and efficient selectively installing only the components they need to work with, minimizes the impact on performance.
 
-## Key Principles & Features:
-1.	Component Scaffolding: Shadcn-ui is not like those traditional component libraries installed via npm into the node_modules. Instead, the components are scaffolded into the project essentially acting as wrappers to the radix UI primitives.
-2.	Radix UI Primitives: A Shadcn component in built on tops of the corresponding Radix UI primitive. Radix ensures the components are fully accessible & unopinionated. It provides the basic functionality for the component, while Shadcn handles the styling part as per the requirement.
-3.	Tailwind CSS:  The components utilize tailwind for all styling needs. Using tailwind has the following advantages - faster development, allows customization as per the requirement, avoids unnecessary CSS bloat & thus reducing the file size.
-4.	Avoid Dependency Locks: As the component’s source code reside within the project, the consumer retains full ownership & is not tied to any of the libraries for updates or bug fixes thus waiting for future releases. However, if there is any enhancement made to the base component by Shadcn, consumer will have to re-install the component into the project to receive those updates.
-5.	Performance Optimization: The modular approach allows consumers to selectively import only the components they need to work with, additionally tailwind’s approach with utility classes ensures only have the classes that are needed and avoids unused css. This ensures enhanced performance with reduced bundle sizes & faster load times.
+# Key Principles & Features:
+1.	**Component Scaffolding:** Shadcn-ui is not like those traditional component libraries installed via npm into the node_modules. Instead, the components are scaffolded into the project essentially acting as wrappers to the radix UI primitives.
+2.	**Radix UI Primitives:** A Shadcn component in built on tops of the corresponding Radix UI primitive. Radix ensures the components are fully accessible & unopinionated. It provides the basic functionality for the component, while Shadcn handles the styling part as per the requirement.
+3.	**Tailwind CSS:**  The components utilize tailwind for all styling needs. Using tailwind has the following advantages - faster development, allows customization as per the requirement, avoids unnecessary CSS bloat & thus reducing the file size.
+4.	**Avoid Dependency Locks:** As the component’s source code reside within the project, the consumer retains full ownership & is not tied to any of the libraries for updates or bug fixes thus waiting for future releases. However, if there is any enhancement made to the base component by Shadcn, consumer will have to re-install the component into the project to receive those updates.
+5.	**Performance Optimization:** The modular approach allows consumers to selectively import only the components they need to work with, additionally tailwind’s approach with utility classes ensures only have the classes that are needed and avoids unused css. This ensures enhanced performance with reduced bundle sizes & faster load times.
 
-In summary, Shadcn-ui is _a collection of reusable components one can copy and paste into their application_ that reside within the project’s source code. It provides out of the box accessibility, is customizable, and tailwind styled components based on Radix  primitives empower consumers with full ownership of the components without enforcing strict dependencies.
+In summary, Shadcn-ui is _a collection of reusable components one can copy and paste into their application_ that reside within the project’s source code. It provides out of the box accessibility, is customizable, and tailwind styled components based on Radix primitives empower consumers with full ownership of the components without enforcing strict dependencies.
 
 # Installation & Setup
 
