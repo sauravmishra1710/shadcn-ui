@@ -188,69 +188,26 @@ CLI option for setup - https://ui.shadcn.com/docs/cli
 
 ## Behind the Scenes
 
-What happens when we add an element to project using the `npx shadcn add <element>` command?
+When we add/install any component to project using the `npx shadcn add <element>` command, the CLI executes following actions to scaffold the component into the project. Listed below is the breakdown of what happens step-by-step -
 
-On executing the `npx shadcn add <element>` command, the shadcn CLI performs several actions behind the scenes to **scaffold** and **integrate** the specified UI component into your project. Listed below is the breakdown of what happens step-by-step -
-
-1. **Fetches Component Templates**<br>
-   The CLI downloads the corresponding pre-configured component template from Shadcn’s repository or local resources. These templates include:
-    - Radix UI primitive integration (for accessible behavior).
-    - Tailwind CSS classes (for styling).
-  
-2. **Generates Component Files**<br>
-  The CLI creates the component file (e.g., button.jsx, dialog.jsx) in your project, typically in a components directory. It ensures that:
-    - The component is self-contained.
-    - Styling and structure follow the Tailwind-based design patterns.
-  
-3. **Installs Required Dependencies**<br>
-  Checks for and installs required dependencies, such as:
-    - Radix UI primitives (e.g., Radix UI primitives like @radix-ui/react-dialog) are automatically installed if they are not already present.
-    - Any additional utilities or libraries (e.g., clsx for class merging or tailwind-merge).
-  
-4. **Configures Tailwind CSS**<br>
-  If applicable, the CLI updates your `tailwind.config.js` file to include any required configuration, such as:
-    - Extending the theme (e.g., adding custom colors or spacing).
-    - Including necessary plugins for features like animations.
-  
-5. **Ensures TypeScript Compatibility**<br>
-  If you’re using TypeScript, the CLI generates type-safe components and ensures that:
-    - Type definitions for the component props are included.
-    - Any necessary types from external libraries are installed.
-  
-6. **Updates Project Structure**<br>
-  The CLI might suggest or apply changes to your project’s structure to support the added component, such as:
-    - Creating a lib folder for reusable utilities.
-    - Adding utility functions (e.g., class name merging). The CLI may create or update a utility file, such as lib/utils.ts, with functions like cn to handle class name merging.<br>
-       Sample `lib/utils.js` file - 
-       ```
-        import { clsx } from "clsx"
-        import { twMerge } from "tailwind-merge"
-        
-        export function cn(...inputs) {
-          return twMerge(clsx(inputs))
-        }
-       ```
-  
-7. **Scaffolds Tailwind-Based Styling**<br>
-  The generated component comes with pre-configured Tailwind CSS classes for consistent design. These classes are:
-    - Opinionated but customizable.
-    - Tailored to the Radix UI primitive's expected structure.
-  
-8. **Documents Usage Instructions**<br>
-  After adding the element, the CLI outputs instructions or notes about:
-    - The location of the component file.
-    - How to use the component in your project.
-    - Any additional setup steps.
+1. CLI downloads the corresponding pre-configured component template. The templates include - integration with Radix UI primitive (for accessibility), Tailwind CSS classes (for styling).
+2. Once the template is fetched, CLI will create the component file (e.g., button.jsx, dialog.jsx), within the component directory.
+3. CLI then proceeds to install the required Radix UI primitive dependencies & utilities.
+4. Once the dependencies are installed, CLI updates your `tailwind.config.js` configuration for styling the component.
+5. If the project is based on typescript, the CLI generates type-safe components and ensures type definitions are included.
+6. CLI might apply changes to the project’s structure to support the added component, such as creating a lib folder for reusable utilities, adding utility functions (e.g., class name merging). The CLI creates the utility file (utils.js) within the `lib` directory  to handle class name merging.
+7. Styles the installed component with tailwind classes for consistent design.
+8. Lastly, it publishes instructions regarding the location of the component file, how to use the component, etc..
 
 ## Example Workflow for npx shadcn add button
 
-1. Fetch Template: Retrieves the button component template.
-2. Scaffold File: Creates `components/button.jsx/.tsx` with tailwind classes.
-3. Install Radix UI: Adds `@radix-ui/react-*` primitives (if not already installed).
-4. Configure Tailwind: Ensures the `tailwind.config.js` file supports the button's styling.
-5. Provide Instructions: Outputs where the button component is located and how to use it.
+1. Fetches the button component template.
+2. Creates `components/button.jsx/.tsx` with the components directory & pre-configured with tailwind classes.
+3. Installs `@radix-ui/react-*` primitives (if not already installed).
+4. Ensures the `tailwind.config.js` file supports styling for the button component.
+5. Publishes information about the button component location and usage.
 
-Example of the fetched button code might look like:
+After executing the above steps, the button code might look like:
 
 ```
 import { cn } from "@/lib/utils"; // Utility for class name merging
