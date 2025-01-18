@@ -257,6 +257,8 @@ The comparison below shows how components differ in terms of complexity, corresp
 | **Table**          | Complex               | `clsx`, `tailwind-merge`, optional third-party libs | None                       | Extended styles for tables               | Pre-styled table components, customizable columns, and supports sorting/other interactions. |
 | **Dialog**         | Interactive           | `@radix-ui/react-dialog`, `clsx`, `tailwind-merge`  | `Dialog`, `DialogTrigger`  | Animations (e.g., `transition`, `opacity`) | Includes multiple subcomponents for trigger, overlay, and content. Accessible by default.   |
 
+As we see in the table above, simpler components have minimal dependencies & requirements to live in the project while as the complexity grows additional radix primitives along with additional configuration to serve the styling needs for the components get incorporated into the project. Components like dialog & table could also include several sub-components to fully support the functional & styling requirements. 
+
 ---
 
 ## ShadCN UI in Action 
